@@ -1,4 +1,5 @@
 
+const fs = require('fs');
 
  class SquareMatrixArray {
      constructor(){
@@ -57,16 +58,17 @@ constructor(){
 class Tester {
     constructor(){
         this.squareMatrixArray;
+        this.init()
     }
   
   
   init() {
-    print("OK")
-    run()
+    console.log("OK")
+    this.run()
   }
   
   Init() {
-    squareMatrixArray = new SquareMatrixArray()
+    this.squareMatrixArray = new SquareMatrixArray()
   }
   
     dump() {
@@ -76,61 +78,40 @@ class Tester {
     }
     
     Logger.log("///////////////Массив матриц/////////////")
-    squareMatrixArray.squareMatrixArray.forEach { element in
-      Logger.log("Element: \(element.matrix)")
-    }
+    squareMatrixArray.squareMatrixArray.forEach(item =>{
+      Logger.log(`Element: ${element.matrix}`)
+    })     
     Logger.log("/////////////////////////////////////////")
 
   }
   
     squareArrayTest1() {
-    Init()
+    this.Init()
     Logger.log("//////////////////squareArrayTest1/////////////////")
     Logger.log("Проверяем, создаётся ли объект типа SquareMatrix")
-    dump()
-    squareMatrixArray.addMatrixs()
+    this.dump()
+    this.squareMatrixArray.addMatrixs()
     Logger.log("Команда добавлена")
-    dump()
+    this.dump()
   }
   
   run() {
-    squareArrayTest1()
-    print("Run")
+    this.squareArrayTest1()
+    console.log("Run")
   }
 }
 
 
-final class Logger {
-
-    static var logFile: URL? {
-        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
-        let dateString = formatter.string(from: Date())
-        let fileName = "\(dateString).log"
-        return documentsDirectory.appendingPathComponent(fileName)
-    }
-
-    static func log(_ message: String) {
-        guard let logFile = logFile else {
-            return
-        }
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        let timestamp = formatter.string(from: Date())
-        guard let data = (timestamp + ": " + message + "\n").data(using: String.Encoding.utf8) else { return }
-
-        if FileManager.default.fileExists(atPath: logFile.path) {
-            if let fileHandle = try? FileHandle(forWritingTo: logFile) {
-                fileHandle.seekToEndOfFile()
-                fileHandle.write(data)
-                fileHandle.closeFile()
-            }
-        } else {
-            try? data.write(to: logFile, options: .atomicWrite)
-        }
+class Logger {
+    static  log(_message) {
+      if (fs.existsSync('myloger.txt')) {
+        let date = new Date('dd-MM-yyyy');
+        fs.writeFileSync('myloger.txt', `${date}:${_message} `);
+      }
+      else{
+        console.log('file not found')
+      }
     }
 }
 
-var tester = Tester()
+var tester = new Tester()
