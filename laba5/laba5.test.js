@@ -4,19 +4,19 @@ const TPO = require('./laba5')
 const Test = new TPO()
 
 describe('Square matrix', () =>{
-    let matrix = [
-        [0,0,2],
-        [0,1]
+    // let matrix = [
+    //     [0,0,2],
+    //     [0,1]
       
-      ]
-      let k = -4;
-      let rotated = Test.rotate(matrix, k)
+    //   ]
+    //   let k = -4;
+    //   let rotated = Test.rotate(matrix, k)
 
 
-  test('should be defined', () => {
-    expect(Test.rotate).toBeDefined()
-    expect(Test.rotate).not.toBeUndefined()
-  })
+//   test('should be defined', () => {
+//     expect(Test.rotate).toBeDefined()
+//     expect(Test.rotate).not.toBeUndefined()
+//   })
 
   test('result should be', () => {
     let matrix = [

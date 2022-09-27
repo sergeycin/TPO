@@ -3,6 +3,9 @@ var fs = require('fs');
 class TPO {
 // MARK: FIRST TASK
 // Rotate by 90 * k degrees function
+constructor(){
+
+}
    rotate(matrix, k)  {
       if(k <0 ) return 'k is wrong'
         let isSquare = this.isSquareMatrix(matrix)
@@ -51,7 +54,7 @@ class TPO {
 
 // MARK: THREE TASK
    readFile(name){
-    var data = fs.readFileSync(name, 'utf8');
+    var data = fs.readFileSync(name ? name : 'file.txt', 'utf8');
     let count = 0;
     for(let stroka of data.split('\n')){
         let curStroke = String(stroka);
@@ -67,25 +70,28 @@ class TPO {
 }
 
 
-const Test = new TPO()
-// Один тест на количество
-let matrix = [
-  [0,0],
-  [0,1]
+// const Test = new TPO()
+// // Один тест на количество
+// let matrix = [
+//   [0,0],
+//   [0,1]
 
-]
-let k = 4;
-let rotated = Test.rotate(matrix, k)
-console.log(`Rotateded matrix`, rotated)
-
-
-
-
-// В начале, в конце, в середине, присутствуют не все e, отсутствуют e
-let str = 'i tut'
-console.log('Is have 5 e', Test.is5CharactersE(str) )
+// ]
+// let k = 4;
+// let rotated = Test.rotate(matrix, k)
+// console.log(`Rotateded matrix`, rotated)
 
 
 
-// В начале, в конце, в середине, присутствуют не все e, отсутствуют e
-console.log('Count space string',Test.readFile('file.txt'))
+
+// // В начале, в конце, в середине, присутствуют не все e, отсутствуют e
+// let str = 'i tut'
+// console.log('Is have 5 e', Test.is5CharactersE(str) )
+
+
+
+// // В начале, в конце, в середине, присутствуют не все e, отсутствуют e
+// console.log('Count space string',Test.readFile('file.txt'))
+
+
+module.exports = TPO
