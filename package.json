@@ -1,0 +1,26 @@
+{
+  "name": "tpo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "laba1.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeycin/TPO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergeycin/TPO/issues"
+  },
+  "homepage": "https://github.com/sergeycin/TPO#readme",
+  "dependencies": {
+    "jest": "^29.0.3"
+  }
+}
