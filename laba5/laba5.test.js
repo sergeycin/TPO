@@ -1,37 +1,36 @@
-const { describe } = require('yargs')
 const TPO = require('./laba5')
-
 const Test = new TPO()
 
 describe('Square matrix', () =>{
-    // let matrix = [
-    //     [0,0,2],
-    //     [0,1]
-      
-    //   ]
-    //   let k = -4;
-    //   let rotated = Test.rotate(matrix, k)
 
+  let matrix = [
+    [0,0],
+    [0,1]
+  
+  ]
+  let k = 4;
 
-//   test('should be defined', () => {
-//     expect(Test.rotate).toBeDefined()
-//     expect(Test.rotate).not.toBeUndefined()
-//   })
+  test('should be defined', () => {
+    expect(Test.rotate(matrix,k)).toBeDefined()
+    expect(Test.rotate(matrix,k)).not.toBeUndefined()
+  })
+
 
   test('result should be', () => {
-    let matrix = [
-        [0,0],
-        [0,1]
-      
-      ]
-      let k = 4;
-
       let result = [ [ 1, 1 ], [ 0, 1 ] ]
     expect(Test.rotate(matrix,k)).toEqual(result)
   })
 
 })
 
+
+describe('Is have eeeee', () =>{
+  test('should be defined', () => {
+    expect(Test.is5CharactersE).toBeDefined()
+    expect(Test.is5CharactersE).not.toBeUndefined()
+  })
+
+})
 // const Lodash = require('./laba5')
 
 // let _ = new Lodash()

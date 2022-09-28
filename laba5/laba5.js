@@ -3,9 +3,7 @@ var fs = require('fs');
 class TPO {
 // MARK: FIRST TASK
 // Rotate by 90 * k degrees function
-constructor(){
 
-}
    rotate(matrix, k)  {
       if(k <0 ) return 'k is wrong'
         let isSquare = this.isSquareMatrix(matrix)
