@@ -30,6 +30,28 @@ describe('Is have eeeee', () =>{
     expect(Test.is5CharactersE).not.toBeUndefined()
   })
 
+  test('result should be right', () => {
+  expect(Test.is5CharactersE('edueeeee')).toEqual(true)
+  expect(Test.is5CharactersE('eduee')).toEqual(false)
+  expect(Test.is5CharactersE('')).toEqual(false)
+  expect(Test.is5CharactersE('eeeeedffdfdfdfs')).toEqual(true)
+  expect(Test.is5CharactersE('eddsedesefe')).toEqual(false)
+})
+})
+
+
+
+describe('Count empty string', () =>{
+  test('should be defined', () => {
+    expect(Test.readFile).toBeDefined()
+    expect(Test.readFile).not.toBeUndefined()
+    expect(Test.readFile).not.toBe(null)
+  })
+
+  test('result should be right', () => {
+  expect(Test.readFile('file.txt')).toBeGreaterThanOrEqual(0)
+
+})
 })
 // const Lodash = require('./laba5')
 

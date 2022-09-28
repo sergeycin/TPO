@@ -1,0 +1,13 @@
+
+describe('Count empty string', () =>{
+  test('should be defined', () => {
+    expect(Test.readFile).toBeDefined()
+    expect(Test.readFile).not.toBeUndefined()
+    expect(Test.readFile).not.toBe(null)
+  })
+
+  test('result should be right', () => {
+  expect(Test.readFile('file.txt')).toBeGreaterThanOrEqual(0)
+
+})
+})
