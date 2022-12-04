@@ -29,9 +29,12 @@ class TPO {
 
      isSquareMatrix(matrix) {
       for(let item in matrix){
-              if(matrix[item].length != matrix[Number(item + 1)].length){
+             
+               if( matrix[Number(item + 1)]){
+                if(matrix[item].length != matrix[Number(item + 1)].length){
                   return 'neverno'
-               }      
+               }     
+             }    
       }
   }
 
@@ -63,26 +66,58 @@ class TPO {
 
 }
 
+class Tester{
+ static TestRotate(matrix1,matrix2){
+  let result = '';
+   if((matrix1.length == matrix2.length)){
+    for(let i=0; i< matrix1.length;i++){
+      for(let j=0; j< matrix1[i].length;j++){
+        if(matrix1[i][j] == matrix2[i][j]){
+          result = 'Expected Result and Actual'
+        }
+        else{
+          return 'Expected Result and Actual is not equal'
+        }
+      }
+    }
+   }
+   else{
+    return 'error'
+  }
+  return `${result}`
+  }
+
+  static TestStroke(result1,result2){
+    if(String(result1) === String(result2)) return 'Expected Result and Actual is equal'
+  }
+
+}
+
 
 const Test = new TPO()
 // Один тест на количество
 let matrix = [
-  [0,0,2],
+  [0,0],
   [0,1]
 
 ]
-let k = -4;
+let k = 4;
 let rotated = Test.rotate(matrix, k)
-console.log(`Rotateded matrix`, rotated)
+let expectedmatrix = [
+  [1,1],
+  [0,1]
+
+]
+console.log(`Rotateded matrix`, rotated, Tester.TestRotate(rotated,expectedmatrix))
 
 
 
 
 // В начале, в конце, в середине, присутствуют не все e, отсутствуют e
 let str = 'i tut'
-console.log('Is have 5 e', Test.is5CharactersE(str) )
+console.log('Is have 5 e', Test.is5CharactersE(str), Tester.TestStroke(Test.is5CharactersE(str),false) )
 
 
 
 // В начале, в конце, в середине, присутствуют не все e, отсутствуют e
-console.log('Count space string',Test.readFile('file.txt'))
+console.log('Count space string',Test.readFile('file.txt'),Tester.TestStroke(Test.readFile('file.txt'),0))
